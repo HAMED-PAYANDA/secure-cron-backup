@@ -123,6 +123,6 @@ This project is licensed under the MIT License.
 
 ## 👤 Author
 
-Hamed Payanda
-GitHub: @HAMED-PAYANDA
-Developed as part of the **IBM Applied Software Engineering program**, this project bridges the gap between foundational Linux administration and robust, automated infrastructure engineering.
+**Hamed Payanda**
+***GitHub:**[[@HAMED-PAYANDA](https://github.com/HAMED-PAYANDA)
+*Developed as part of the **IBM Applied Software Engineering program**, this project bridges the gap between foundational Linux administration and robust, automated infrastructure engineering.
