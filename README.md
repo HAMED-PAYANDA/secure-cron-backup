@@ -1,11 +1,12 @@
 # 🛡️ Secure Cron Backup: Automated POSIX Archive Utility
 
 ![IBM](https://img.shields.io/badge/IBM-Applied_Software_Engineering_Fundamentals-052FAD?style=for-the-badge&logo=ibm&logoColor=white)
+[![IBM Certification](https://img.shields.io/badge/IBM-AI%20Developer%20Program-blue?style=flat&logo=ibm)](https://cognitiveclass.ai/)
 ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
 ![ShellCheck](https://img.shields.io/badge/ShellCheck-Static_Analysis-lightgrey?style=for-the-badge)
-
+![Status](https://img.shields.io/badge/Status-Completed-success?style=flat)
 ---
 
 ## 📖 Project Overview
@@ -26,18 +27,27 @@ Demonstrates the background daemon configuration executing the script at midnigh
 The utility follows a linear, validation-first execution flow, triggered by the system's cron daemon and protected by continuous integration.
 
 ```mermaid
-[Cron Daemon] ──(Triggers Daily @ Midnight)──> [backup.sh]
-                                                    │
-                                             (Epoch Validation)
-                                                    │
-[Target Directory] ──(Filters < 24h files)──> [Array Parser]
-                                                    │
-                                             (Tar Compression)
-                                                    │
-[Destination Dir] <──(Moves backup.tar.gz)─── [Archiver]
+graph TD
+    A[Cron Daemon] -->|Executes @ Midnight| B(backup.sh Utility)
+    B -->|Scans File Metadata| C{Epoch Time Validator}
+    C -->|Validates < 24h Modified| D[Array Parser]
+    D -->|Feeds Safe File List| E(Tar Archiver)
+    E -->|Compresses & Moves .tar.gz| F[Destination Directory]
+    
+    G[GitHub Push/PR] -.->|Triggers CI/CD| H{GitHub Actions}
+    H -.->|Enforces POSIX standard| I[ShellCheck Linter]
 
-===============================================================
-[GitHub Repository] <──(Push/PR)──> [GitHub Actions: ShellCheck]
+    classDef sys fill:#2b3137,stroke:#333,stroke-width:2px,color:#fff;
+    classDef bash fill:#4EAA25,stroke:#333,stroke-width:2px,color:#fff;
+    classDef logic fill:#2088FF,stroke:#333,stroke-width:2px,color:#fff;
+    classDef storage fill:#8e44ad,stroke:#333,stroke-width:2px,color:#fff;
+    classDef ci fill:#052FAD,stroke:#333,stroke-width:2px,color:#fff;
+
+    class A sys;
+    class B bash;
+    class C,D logic;
+    class E,F storage;
+    class G,H,I ci;
 ```
 
 ---
