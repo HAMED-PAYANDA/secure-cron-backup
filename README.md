@@ -1,12 +1,13 @@
 # 🛡️ Secure Cron Backup: Automated POSIX Archive Utility
 
-![IBM](https://img.shields.io/badge/IBM-Applied_Software_Engineering_Fundamentals-052FAD?style=for-the-badge&logo=ibm&logoColor=white)
+![IBM](https://img.shields.io/badge/IBM-Applied_Software_Engineering_Fundamentals-052FAD?style=flat&logo=ibm&logoColor=white)
 [![IBM Certification](https://img.shields.io/badge/IBM-AI%20Developer%20Program-blue?style=flat&logo=ibm)](https://cognitiveclass.ai/)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
-![ShellCheck](https://img.shields.io/badge/ShellCheck-Static_Analysis-lightgrey?style=for-the-badge)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat&logo=gnu-bash&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white)
+![ShellCheck](https://img.shields.io/badge/ShellCheck-Static_Analysis-lightgrey?style=flat)
 ![Status](https://img.shields.io/badge/Status-Completed-success?style=flat)
+
 ---
 
 ## 📖 Project Overview
@@ -53,22 +54,23 @@ graph TD
 ---
 
 ## ✨ Key Features
-Rolling 24-Hour Window (Epoch Validation): Uses epoch timestamps (seconds since Jan 1, 1970) and arithmetic expansion to calculate exact 24-hour thresholds, ensuring absolute accuracy across date boundaries and timezones.
-POSIX-Compliant Array Parsing: Utilizes strict array expansion (${toBackup[@]}) to safely handle dynamic file lists, preventing word-splitting issues with filenames containing spaces or special characters.
-Zero-Error Execution Guardrails: Explicit validation checks ensure directory arguments exist and are accessible before execution, exiting cleanly with standard error codes if parameters are missing.
-Automated CI/CD Linting: Integrated GitHub Actions workflow (shellcheck.yml) automatically sets up the environment and enforces strict POSIX/Bash compliance on every push.
-Background Automation: Engineered for seamless daemon scheduling via cron without requiring manual user intervention.
+* **Rolling 24-Hour Window (Epoch Validation):** Uses epoch timestamps (seconds since Jan 1, 1970) and arithmetic expansion to calculate exact 24-hour thresholds, ensuring absolute accuracy across date boundaries and timezones.
+* **POSIX-Compliant Array Parsing:** Utilizes strict array expansion (`${toBackup[@]}`) to safely handle dynamic file lists, preventing word-splitting issues with filenames containing spaces or special characters.
+* **Zero-Error Execution Guardrails:** Explicit validation checks ensure directory arguments exist and are accessible before execution, exiting cleanly with standard error codes if parameters are missing.
+* **Automated CI/CD Linting:** Integrated GitHub Actions workflow (`shellcheck.yml`) automatically sets up the environment and enforces strict POSIX/Bash compliance on every push.
+* **Background Automation:** Engineered for seamless daemon scheduling via cron without requiring manual user intervention.
 
 ---
 
-🧰 Core Tech Stack
-Category	Technology / Tool	Version	Language
-Scripting	GNU Bash	5.0+	Bash
-Archival	Tar (Tape Archive)	Standard	-
-Automation	Cron Daemon	Standard	-
-DevOps & CI/CD	GitHub Actions	-	YAML
-Static Analysis	ShellCheck	Action v2.0	-
+## 🧰 Core Tech Stack
 
+| Category | Technology / Tool | Version | Language |
+| :--- | :--- | :--- | :--- |
+| **Scripting** | GNU Bash | 5.0+ | Bash |
+| **Archival** | Tar (Tape Archive) | Standard | - |
+| **Automation** | Cron Daemon | Standard | - |
+| **DevOps & CI/CD** | GitHub Actions | - | YAML |
+| **Static Analysis** | ShellCheck | Action v2.0 | - |
 ---
 
 ## 📂 Repository Structure
