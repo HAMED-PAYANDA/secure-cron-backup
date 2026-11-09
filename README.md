@@ -1,7 +1,8 @@
 # 🛡️ Secure Cron Backup: Automated POSIX Archive Utility
 
 ![IBM](https://img.shields.io/badge/IBM-Applied_Software_Engineering_Fundamentals-052FAD?style=flat&logo=ibm&logoColor=white)
-[![IBM Certification](https://img.shields.io/badge/IBM-AI%20Developer%20Program-blue?style=flat&logo=ibm)](https://cognitiveclass.ai/)
+![IBM Linux Commands](https://img.shields.io/badge/IBM-Linux_Commands-052FAD?style=flat&logo=ibm&logoColor=white)
+![Shell Scripting](https://img.shields.io/badge/Shell-Scripting-4EAA25?style=flat&logo=gnu-bash&logoColor=white)
 ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat&logo=gnu-bash&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white)
@@ -122,4 +123,4 @@ This project is licensed under the MIT License.
 👤 Author
 Hamed Payanda
 GitHub: @HAMED-PAYANDA
-Completed as a core automation project for the IBM Full Stack Software Developer program.
+Developed as part of the **IBM Applied Software Engineering program**, this project bridges the gap between foundational Linux administration and robust, automated infrastructure engineering.
