@@ -65,7 +65,7 @@ graph TD
 
 ---
 
-## 🧰 Core Tech Stack
+## 🛠️ Core Tech Stack
 
 | Category | Technology / Tool | Version | Language |
 | :--- | :--- | :--- | :--- |
