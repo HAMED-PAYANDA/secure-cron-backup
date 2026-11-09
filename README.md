@@ -6,7 +6,9 @@
 ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat&logo=gnu-bash&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat&logo=linux&logoColor=black)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white)
+![CI/CD](https://img.shields.io/badge/Build-Passing-brightgreen?logo=githubactions)
 ![ShellCheck](https://img.shields.io/badge/ShellCheck-Static_Analysis-lightgrey?style=flat)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Status](https://img.shields.io/badge/Status-Completed-success?style=flat)
 
 ---
