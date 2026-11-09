@@ -117,12 +117,12 @@ To schedule daily backups at midnight system time, append the following directiv
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
 ## 👤 Author
 
 **Hamed Payanda**
-* **GitHub:**[[@HAMED-PAYANDA](https://github.com/HAMED-PAYANDA)
-*Developed as part of the **IBM Applied Software Engineering program**.
+* **GitHub:** [@HAMED-PAYANDA](https://github.com/HAMED-PAYANDA)
+* Developed as part of the **IBM Applied Software Engineering program**.
