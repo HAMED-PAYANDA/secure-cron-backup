@@ -1,71 +1,64 @@
 #!/bin/bash
 
-# This checks if the number of arguments is correct
-# If the number of arguments is incorrect ( $# != 2) print error message and exit
-if [[ $# != 2 ]]
+# Validate that exactly two arguments are provided
+if [[ $# -ne 2 ]]
 then
-  echo "backup.sh target_directory_name destination_directory_name"
-  exit
+  echo "Usage: backup.sh <target_directory_name> <destination_directory_name>"
+  exit 1
 fi
 
-# This checks if argument 1 and argument 2 are valid directory paths
-if [[ ! -d $1 ]] || [[ ! -d $2 ]]
+# Verify that both arguments are valid, accessible directories
+if [[ ! -d "$1" ]] || [[ ! -d "$2" ]]
 then
-  echo "Invalid directory path provided"
-  exit
+  echo "Error: Invalid directory path provided."
+  exit 1
 fi
 
-# [TASK 1]
-targetDirectory=$1
-destinationDirectory=$2
+# Assign inputs to descriptive variables safely
+targetDirectory="$1"
+destinationDirectory="$2"
 
-# [TASK 2]
 echo "Target Directory: $targetDirectory"
 echo "Destination Directory: $destinationDirectory"
 
-# [TASK 3]
+# Generate current epoch timestamp and format the output filename
 currentTS=$(date +%s)
-
-# [TASK 4]
 backupFileName="backup-${currentTS}.tar.gz"
 
-# We're going to:
-  # 1: Go into the target directory
-  # 2: Create the backup file
-  # 3: Move the backup file to the destination directory
-
-# To make things easier, we will define some useful variables...
-
-# [TASK 5]
+# Capture absolute paths to guarantee reliable navigation during execution
 origAbsPath=$(pwd)
 
-# [TASK 6]
-cd "$destinationDirectory" || exit # <-
+cd "$destinationDirectory" || exit 1
 destAbsPath=$(pwd)
 
-# [TASK 7]
-cd "$origAbsPath" || exit # <-
-cd "$targetDirectory" || exit # <-
+cd "$origAbsPath" || exit 1
+cd "$targetDirectory" || exit 1
 
-# [TASK 8]
+# Calculate the epoch time threshold for the 24-hour rolling window
 yesterdayTS=$((currentTS - 24 * 60 * 60))
 
+# Initialize the array to hold files requiring backup
 declare -a toBackup
 
-for file in * # [TASK 9]
+# Iterate through the target directory and isolate recently modified files
+for file in *
 do
-  # [TASK 10]
-  if [[ `date -r $file +%s` -gt $yesterdayTS ]]
+  # Skip loop if directory is empty (prevents '*' from being treated as a literal file)
+  [[ -e "$file" ]] || continue
+
+  # Compare file modification time against the 24-hour threshold using modern substitution
+  if [[ $(date -r "$file" +%s) -gt "$yesterdayTS" ]]
   then
-    # [TASK 11]
-    toBackup+=($file)
+    toBackup+=("$file")
   fi
 done
 
-# [TASK 12]
-tar -czvf $backupFileName ${toBackup[@]}
-
-# [TASK 13]
-mv $backupFileName "$destAbsPath"
-
-# Congratulations! You completed the final project for this course!
+# Ensure there are files to backup before running the compression
+if [[ ${#toBackup[@]} -gt 0 ]]
+then
+  # Archive the filtered files and transfer the payload to the secure destination
+  tar -czvf "$backupFileName" "${toBackup[@]}"
+  mv "$backupFileName" "$destAbsPath"
+else
+  echo "No files modified in the last 24 hours. Backup skipped."
+fi
